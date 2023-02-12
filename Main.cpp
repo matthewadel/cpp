@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long long convertDecimalToBinary(long long i)
+long convertDecimalToBinary(long i)
 {
 
   int power = 0;
@@ -18,7 +18,7 @@ long long convertDecimalToBinary(long long i)
   return output;
 }
 
-long long convertBinaryToDecimal(long long i)
+long convertBinaryToDecimal(long i)
 {
 
   int rem;
@@ -34,27 +34,27 @@ long long convertBinaryToDecimal(long long i)
   return output;
 }
 
-long long setNumber(long long num, int idx)
+long setNumber(long num, int idx)
 {
   return num |= (1 << idx);
 }
 
-long long resetNumber(long long num, int idx)
+long resetNumber(long num, int idx)
 {
   return num &= ~(1 << idx);
 }
 
-long long flipNumber(long long num, int idx)
+long flipNumber(long num, int idx)
 {
   return num ^= (1 << idx);
 }
 
-int returnBit(long long num, int idx)
+int returnBit(long num, int idx)
 {
   return (num >> idx) & 1;
 }
 
-long long rotateNumber(int num, int idx)
+long rotateNumber(long num, int idx)
 {
   for (int i = 0; i < idx; i++)
   {
@@ -69,54 +69,64 @@ long long rotateNumber(int num, int idx)
   return num;
 }
 
-int count_1_bits(long long x)
+int count_1_bits(long x)
 {
-  // int count = 0;
-  // int y = 0;
-  // while (x)
-  // {
-  //   y = returnBit(x,0) & 1;
-  //   if(y)
-  //   count++;
-  //   x>>=1;
-  // }
-
-  // return count;
-  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
   int count = 0;
+  int y = 0;
   while (x)
   {
-    x &= (x - 1);
-    count++;
+    y = returnBit(x, 0) & 1;
+    if (!y)
+      count++;
+    x >>= 1;
+  }
+
+  return count;
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  // int count = 0;
+  // while (x)
+  // {
+  //   x &= (x - 1);
+  //   count++;
+  // }
+  // return count;
+}
+
+long sumXor(int x)
+{
+  int count = 1;
+  int copy_of_number = x;
+  int index = 1;
+
+  while (copy_of_number)
+  {
+    if (!(copy_of_number & 1))
+    {
+      count = 2 * count;
+      index++;
+    }
+    copy_of_number >>= 1;
   }
   return count;
 }
 
-long long flip_32_bts(long long x)
-{
-
-  for (int i = 0; i < 32; i++)
-    x = flipNumber(x, i);
-
-  return x;
-}
-
-int uniqueNumber(vector<int> &nums)
-{
-  int output = 0;
-  for (int i = 0; i < nums.size(); i++)
-    output ^= nums[i];
-    return output;
-}
-
 int main()
 {
-vector<int> v{9,1,2,2,1};
-cout<<uniqueNumber(v)<<endl;
-  // cout << bitset<32>(x) << endl;
-  // cout << flip_32_bts(x) << endl;
-  // cout << bitset<32>(flip_32_bts(x)) << endl;
+
+  int x;
+  cin >> x;
+  cout << sumXor(x) << endl;
+
+  // 10011010
+  //        0
+  //        1
+  //      100
+  //      101
+  //   100000
+  //   100001
+  //   100100
+  //   100101
 
   return 0;
 }
