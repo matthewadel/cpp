@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long long convertDecimalToBinary(int i)
+long long convertDecimalToBinary(long long i)
 {
 
   int power = 0;
@@ -18,7 +18,7 @@ long long convertDecimalToBinary(int i)
   return output;
 }
 
-int convertBinaryToDecimal(int i)
+long long convertBinaryToDecimal(long long i)
 {
 
   int rem;
@@ -34,22 +34,22 @@ int convertBinaryToDecimal(int i)
   return output;
 }
 
-int setNumber(int num, int idx)
+long long setNumber(long long num, int idx)
 {
   return num |= (1 << idx);
 }
 
-int resetNumber(int num, int idx)
+long long resetNumber(long long num, int idx)
 {
   return num &= ~(1 << idx);
 }
 
-int flipNumber(int num, int idx)
+long long flipNumber(long long num, int idx)
 {
   return num ^= (1 << idx);
 }
 
-int returnBit(int num, int idx)
+int returnBit(long long num, int idx)
 {
   return (num >> idx) & 1;
 }
@@ -69,11 +69,54 @@ long long rotateNumber(int num, int idx)
   return num;
 }
 
-int main()
+int count_1_bits(long long x)
+{
+  // int count = 0;
+  // int y = 0;
+  // while (x)
+  // {
+  //   y = returnBit(x,0) & 1;
+  //   if(y)
+  //   count++;
+  //   x>>=1;
+  // }
+
+  // return count;
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+  int count = 0;
+  while (x)
+  {
+    x &= (x - 1);
+    count++;
+  }
+  return count;
+}
+
+long long flip_32_bts(long long x)
 {
 
-  cout << bitset<32>(1646) << endl;
-  cout << bitset<32>(rotateNumber(1646, 8)) << endl;
+  for (int i = 0; i < 32; i++)
+    x = flipNumber(x, i);
+
+  return x;
+}
+
+int uniqueNumber(vector<int> &nums)
+{
+  int output = 0;
+  for (int i = 0; i < nums.size(); i++)
+    output ^= nums[i];
+    return output;
+}
+
+int main()
+{
+vector<int> v{9,1,2,2,1};
+cout<<uniqueNumber(v)<<endl;
+  // cout << bitset<32>(x) << endl;
+  // cout << flip_32_bts(x) << endl;
+  // cout << bitset<32>(flip_32_bts(x)) << endl;
 
   return 0;
 }
