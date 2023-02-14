@@ -1,132 +1,109 @@
+// sheet 7:
+// problem c:
 #include <bits/stdc++.h>
 
 using namespace std;
-
-long convertDecimalToBinary(long i)
-{
-
-  int power = 0;
-  int output = 0;
-
-  while (i != 0)
-  {
-    if (i % 2)
-      output += 1 * pow(10, power);
-    i /= 2;
-    power++;
-  }
-  return output;
-}
-
-long convertBinaryToDecimal(long i)
-{
-
-  int rem;
-  int output = 0;
-  int count = 0;
-  while (i != 0)
-  {
-    rem = i % 10;
-    i /= 10;
-    output += rem * pow(2, count);
-    count++;
-  }
-  return output;
-}
-
-long setNumber(long num, int idx)
-{
-  return num |= (1 << idx);
-}
-
-long resetNumber(long num, int idx)
-{
-  return num &= ~(1 << idx);
-}
-
-long flipNumber(long num, int idx)
-{
-  return num ^= (1 << idx);
-}
-
-int returnBit(long num, int idx)
-{
-  return (num >> idx) & 1;
-}
-
-long rotateNumber(long num, int idx)
-{
-  for (int i = 0; i < idx; i++)
-  {
-    int y = returnBit(num, 0);
-    num >>= 1;
-    if (y)
-      num = setNumber(num, 31);
-    else
-      num = resetNumber(num, 31);
-  }
-
-  return num;
-}
-
-int count_1_bits(long x)
-{
-  int count = 0;
-  int y = 0;
-  while (x)
-  {
-    y = returnBit(x, 0) & 1;
-    if (!y)
-      count++;
-    x >>= 1;
-  }
-
-  return count;
-  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-  // int count = 0;
-  // while (x)
-  // {
-  //   x &= (x - 1);
-  //   count++;
-  // }
-  // return count;
-}
-
-long sumXor(int x)
-{
-  int count = 1;
-  int copy_of_number = x;
-  int index = 1;
-
-  while (copy_of_number)
-  {
-    if (!(copy_of_number & 1))
-    {
-      count = 2 * count;
-      index++;
-    }
-    copy_of_number >>= 1;
-  }
-  return count;
-}
-
 int main()
 {
 
-  int x;
-  cin >> x;
-  cout << sumXor(x) << endl;
+  // vector<int> nums(pow(10, 9)+1, 0);
+  // long no_of_queries;
+  // cin >> no_of_queries;
+  // int operation;
+  // long long value;
+  // for (int i = 0; i < no_of_queries; i++)
+  // {
+  //   cin >> operation;
+  //   cin >> value;
 
-  // 10011010
-  //        0
-  //        1
-  //      100
-  //      101
-  //   100000
-  //   100001
-  //   100100
-  //   100101
+  //   if (operation == 1)
+  //   {
+  //     nums[value]++;
+  //   }
+  //   else if (operation == 2)
+  //   {
+  //     if (nums[value])
+  //       nums[value]--;
+  //   }
+  //   else
+  //   {
+  //     cout << ((find(nums.begin(), nums.end(), value) - nums.begin()) != nums.size()) << endl;
+  //   }
+  // }
 
   return 0;
 }
+// --------------------------------------------------------------------
+
+// problem b:
+// #include <bits/stdc++.h>
+
+// using namespace std;
+// int main()
+// {
+
+//   long no_of_elements, temp_number;
+//   long prefix = 0;
+//   cin >> no_of_elements;
+//   vector<int> nums(pow(10, 5), 0);
+
+//   for (int i = 0; i < no_of_elements; i++)
+//   {
+//     cin >> temp_number;
+//     prefix += temp_number;
+//     nums[i] = prefix;
+//   }
+
+//   int number_of_queries;
+//   cin >> number_of_queries;
+//   int l, r;
+
+//   for (int i = 0; i < number_of_queries; i++)
+//   {
+//     cin >> l >> r;
+//     cout << nums[r] - ((l > 0) ? nums[l - 1] : 0) << endl;
+//   }
+
+//   return 0;
+// }
+// --------------------------------------------------------------------
+
+// problem a:
+// #include <bits/stdc++.h>
+
+// using namespace std;
+
+// string checkArraySequence(int number_of_elements)
+// {
+
+//   int number;
+//   vector<int> nums(pow(10,5),0);
+//   string result = "prekrasnyy";
+//   for (int i = 0; i < number_of_elements; i++)
+//   {
+//     cin >> number;
+//     nums[number]++;
+
+//     if (nums[number] > 1)
+//     {
+//       result = "ne krasivo";
+//     }
+//   }
+
+//   return result;
+// }
+
+// int main()
+// {
+
+//   int no_of_test_cases, number_of_elements;
+//   cin >> no_of_test_cases;
+
+//   for (int i = 0; i < no_of_test_cases; i++)
+//   {
+//     cin >> number_of_elements;
+//     cout<<checkArraySequence(number_of_elements)<<endl;
+//   }
+
+//   return 0;
+// }
