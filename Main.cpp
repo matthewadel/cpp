@@ -1,5 +1,5 @@
 // sheet 7:
-// problem d:
+// problem D:
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,7 +9,7 @@ int main()
 
   return 0;
 }
-// problem c:
+// problem C:
 // #include <bits/stdc++.h>
 // using namespace std;
 
@@ -94,7 +94,7 @@ int main()
 // }
 // --------------------------------------------------------------------
 
-// problem b:
+// problem B:
 // #include <bits/stdc++.h>
 
 // using namespace std;
@@ -127,7 +127,7 @@ int main()
 // }
 // --------------------------------------------------------------------
 
-// problem a:
+// problem A:
 // #include <bits/stdc++.h>
 
 // using namespace std;
