@@ -1,38 +1,97 @@
 // sheet 7:
-// problem c:
-#include <bits/stdc++.h>
+// problem d:
 
+#include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
 
-  // vector<int> nums(pow(10, 9)+1, 0);
-  // long no_of_queries;
-  // cin >> no_of_queries;
-  // int operation;
-  // long long value;
-  // for (int i = 0; i < no_of_queries; i++)
-  // {
-  //   cin >> operation;
-  //   cin >> value;
-
-  //   if (operation == 1)
-  //   {
-  //     nums[value]++;
-  //   }
-  //   else if (operation == 2)
-  //   {
-  //     if (nums[value])
-  //       nums[value]--;
-  //   }
-  //   else
-  //   {
-  //     cout << ((find(nums.begin(), nums.end(), value) - nums.begin()) != nums.size()) << endl;
-  //   }
-  // }
-
   return 0;
 }
+// problem c:
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// pair<bool, int> checkIfNumberExists(map<int, unordered_set<int>> &mp, int value)
+// {
+
+//   pair<bool, int> exists = {false, 0};
+//   for (int i = 0; i < mp.size(); i++)
+//   {
+//     if (i == 0)
+//       continue;
+//     else if (mp[i].count(value))
+//     {
+//       exists.first = true;
+//       exists.second = i;
+//       break;
+//     }
+//   }
+
+//   return exists;
+// }
+
+// void insertAnElement(map<int, unordered_set<int>> &mp, int value)
+// {
+//   pair<bool, int> exists = checkIfNumberExists(mp, value);
+
+//   mp[exists.second + 1].insert(value);
+
+//   if (exists.second)
+//   {
+//     mp[exists.second].erase(value);
+//   }
+// }
+
+// void deleteAnElement(map<int, unordered_set<int>> &mp, int value)
+// {
+//   pair<bool, int> exists = checkIfNumberExists(mp, value);
+
+//   if (exists.first)
+//   {
+//     mp[exists.second].erase(value);
+//     if (exists.second > 1)
+//       mp[exists.second - 1].insert(value);
+//   }
+// }
+
+// int main()
+// {
+
+//   // mp [no. of occurrencies, values inside it];
+//   map<int, unordered_set<int>> mp;
+//   mp[0] = {0};
+//   long no_of_queries;
+//   cin >> no_of_queries;
+//   int operation;
+//   long long value;
+
+//   for (int i = 0; i < no_of_queries; i++)
+//   {
+//     cin >> operation;
+//     cin >> value;
+
+//     if (operation == 1)
+//     {
+//       insertAnElement(mp, value);
+//     }
+//     else if (operation == 2)
+//     {
+//       deleteAnElement(mp, value);
+//     }
+//     else if (operation == 3)
+//     {
+//       if (mp.count(value) && !(mp[value].empty()))
+//         cout << 1 << endl;
+//       else
+//         cout << 0 << endl;
+//     }
+
+//   }
+
+//   return 0;
+// }
 // --------------------------------------------------------------------
 
 // problem b:
